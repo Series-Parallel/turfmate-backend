@@ -2,7 +2,9 @@ require('dotenv').config();
 
 const express = require('express')
 const app = express()
-const turf = require('./routes/turf')
+const allTurf = require('./routes/turf')
+const singleTurf = require('./routes/singleTurf')
+
 
 //middleware
 app.use(express.json())
@@ -11,7 +13,8 @@ app.get('/',(req,res) => {
   res.send('hello there!')
 })
 
-app.use('/api/v1/turf',turf)
+app.use('/api/v1/turf',allTurf)
+app.use('/api/v1/turf',singleTurf)
 
 
 const port = process.env.PORT || 3000;
